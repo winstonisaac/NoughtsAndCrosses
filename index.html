@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Noughts & Crosses</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' media='screen' href='assets/style.css'>
+  <link rel="stylesheet" type='text/css' media='screen and (max-width: 699px)' href='assets/styles_700.css'>
+  <link rel="stylesheet" type='text/css' media='screen and (max-width: 479px)' href='assets/styles_480.css'>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg">
+</head>
+<body>
+  <div id = 'gameProper'>
+    <img id = 'gameLogo' src = 'assets/logo.svg'>
+    <div id = 'travelTime'></div>
+    <div id = 'winnerAnnounce'></div>
+    <div id = 'xoGrid'>
+      <div class = 'xoCell empty'></div>
+      <div class = 'xoCell empty'></div>
+      <div class = 'xoCell empty'></div>
+      <div class = 'xoCell empty'></div>
+      <div class = 'xoCell empty'></div>
+      <div class = 'xoCell empty'></div>
+      <div class = 'xoCell empty'></div>
+      <div class = 'xoCell empty'></div>
+      <div class = 'xoCell empty'></div>
+    </div>
+      <button id = 'prev' class = 'disabled'>Revert</button>
+      <button id = 'reset'>↺</button>
+      <button id = 'next' class = 'disabled'>Advance</button>
+  </div>
+  <script src='assets/gameProper.js'></script>
+</body>
+</html>

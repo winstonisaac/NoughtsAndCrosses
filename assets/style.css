@@ -1,0 +1,120 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  user-select: none;
+}
+html{
+  background-image: url(bg.png);
+}
+body{
+  margin-top: max(0px, 50vh - 50vmin);
+}
+#gameProper{
+  display:grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  margin: auto;
+  width:100vmin;
+  height:100vmin;
+}
+#gameLogo{
+  height: 60%;
+  margin: auto;
+  grid-area: 1 / 2 / span 1 / span 3;
+}
+#xoGrid{
+  border-radius: 1.5rem;
+  grid-area: 2 / 2 / span 3 / span 3;
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  filter: drop-shadow(0px 5px 15px rgba(0,0,0,0.2));
+}
+.xoCell{
+  display: table-cell;
+  text-align: center;
+  line-height: 20vmin;
+  font-weight: bold;
+  color: #F2A344;
+  font-size: 6rem;
+  width:100%;
+  background-color: #f7f7f7;
+}
+.xoCell:nth-child(even){
+  background-color: #e7e7e7;
+}
+.xoCell:nth-child(1){
+  border-radius: 1.5rem 0 0 0;
+}
+.xoCell:nth-child(3){
+  border-radius: 0 1.5rem 0 0;
+}
+.xoCell:nth-child(7){
+  border-radius: 0 0 0 1.5rem;
+}
+.xoCell:nth-child(9){
+  border-radius: 0 0 1.5rem 0;
+}
+#controls{
+  grid-area: 5 / 2 / span 3 / span 3;
+}
+button{
+  filter: drop-shadow(0px 5px 15px rgba(0,0,0,0.2));
+  font-family: 'Rubik', sans-serif;
+  border: none;
+  margin: auto;
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #F2A344;
+  cursor: pointer;
+  width:75%;
+  text-align: middle;
+  border-radius: 1.25rem;
+  color: white;
+  font-size: 1rem;
+}
+.disabled{
+  filter:grayscale(100%) drop-shadow(0px 5px 15px rgba(0,0,0,0.2));
+  cursor:not-allowed;
+}
+button:focus{
+  outline: none;
+}
+#prev{
+  grid-area: 5 / 2 / span 1 / span 1;
+}
+#next{
+  grid-area: 5 / 4 / span 1 / span 1;
+}
+#reset{
+  grid-area: 5 / 3 / span 1 / span 1;
+  background-color: #1e1e1e;
+  width: 3.25rem;
+  border-radius: 50%;
+}
+#travelTime{
+  text-align: center;
+  text-orientation: mixed;
+  writing-mode: vertical-rl;
+  font-family: 'Rubik', sans-serif;
+  transform: translateX(-70%);
+  grid-area: 3 / 5 / span 1 / span 1;
+  color: #F2A344;
+}
+#winnerAnnounce{
+  text-align: center;
+  transform: rotate(-90deg)  translateY(80%);
+  font-family: 'Rubik', sans-serif;
+  grid-area: 3 / 1 / span 1 / span 1;
+  color: #F2A344;
+}
+#present{
+  margin-top: 1rem;
+  padding: .5rem;
+  grid-area: 3 / 5 / span 1 / span 1;
+  background-color: #F2A344;
+  width: 2.25rem;
+  border-radius: 50%;
+}

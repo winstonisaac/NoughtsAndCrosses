@@ -1,0 +1,69 @@
+#gameProper{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 12vmin 1fr 1fr 1fr 7vmin;
+  margin: auto;
+  width:81vmin;
+  height:100vmin;
+}
+#gameLogo{
+  height: 60%;
+  margin: auto;
+  grid-area: 1 / 1 / span 1 / span 1;
+}
+.xoCell{
+  line-height: 27vmin;
+}
+#xoGrid{
+  grid-area: 2 / 1 / span 3 / span 3;
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  filter: drop-shadow(0px 5px 15px rgba(0,0,0,0.2));
+}
+button{
+  margin-top:1rem;
+  padding: .5rem;
+}
+#prev{
+  grid-area: 5 / 1 / span 1 / span 1;
+  display: inline;
+}
+#next{
+  grid-area: 5 / 3 / span 1 / span 1;
+}
+#reset{
+  grid-area: 5 / 2 / span 1 / span 1;
+  background-color: #1e1e1e;
+  width: 2.25rem;
+  border-radius: 50%;
+}
+#travelTime{
+  text-orientation: mixed;
+  writing-mode: initial;
+  text-align: center;
+  font-family: 'Rubik', sans-serif;
+  transform: none;
+  grid-area: 1 / 2 / span 1 / span 1;
+  color: #F2A344;
+  font-size:.8rem;
+  line-height: 13vmin;
+}
+#present{
+  margin-top: 0;
+  margin-left:.5rem;
+  padding: .25rem;
+  grid-area: 1 / 2 / span 1 / span 1;
+  background-color: #F2A344;
+  width: 1.5rem;
+  font-size: .8rem;
+  border-radius: 50%;
+}
+#winnerAnnounce{
+  transform:none;
+  line-height: 13vmin;
+  font-size: 1rem;
+  font-family: 'Rubik', sans-serif;
+  grid-area: 1 / 3 / span 1 / span 1;
+  color: #F2A344;
+}
