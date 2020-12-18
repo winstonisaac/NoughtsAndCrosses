@@ -8,12 +8,8 @@ let movesHistory = [
     ["", "", ""],
   ],
 ];
+let presentState;
 let isRewind = false;
-let currentBoard = [
-  ["", "", ""],
-  ["", "", ""],
-  ["", "", ""],
-];
 var gameCells;
 
 document.querySelector("#reset").onclick = function () {
@@ -32,11 +28,6 @@ document.querySelector("#reset").onclick = function () {
     ],
   ];
   isRewind = false;
-  currentBoard = [
-    ["", "", ""],
-    ["", "", ""],
-    ["", "", ""],
-  ];
   var gameCells = document.querySelectorAll("div.xoCell");
   document.querySelector("#prev").classList.add("disabled");
   document.querySelector("#next").classList.add("disabled");
@@ -107,7 +98,7 @@ function buttonCheck() {
     //next button, put here because we are sure that previous should be clicked before next can be
     document.querySelector("#xoGrid").style.filter =
       "blur(" +
-      currentView / 2 +
+      currentView / 4 +
       "px) drop-shadow(0px 5px 15px rgba(0,0,0,0.2))";
     isRewind = true;
     currentView--;
@@ -168,7 +159,7 @@ function cleanUp() {
 
 function saveHistory() {
   var gameCells = document.querySelectorAll("div.xoCell");
-  let presentState = [[], [], []];
+  presentState = [[], [], []];
   for (let outerCounter = 0; outerCounter < 3; outerCounter++) {
     for (let innerCounter = 0; innerCounter < 3; innerCounter++) {
       presentState[outerCounter][innerCounter] =
@@ -190,29 +181,31 @@ function saveHistory() {
 }
 
 function checkEnd() {
-  console.log(movesHistory[0]);
   if (
-    (movesHistory[0][0][0] === movesHistory[0][0][1] &&
-      movesHistory[0][0][0] === movesHistory[0][0][2] &&
-      movesHistory[0][0][0] != "") ||
-    (movesHistory[0][0][0] === movesHistory[0][1][1] &&
-      movesHistory[0][0][0] === movesHistory[0][2][2] &&
-      movesHistory[0][0][0] != "") ||
-    (movesHistory[0][0][0] === movesHistory[0][1][0] &&
-      movesHistory[0][0][0] === movesHistory[0][2][0] &&
-      movesHistory[0][0][0] != "") ||
-    (movesHistory[0][2][0] === movesHistory[0][2][1] &&
-      movesHistory[0][2][0] === movesHistory[0][2][2] &&
-      movesHistory[0][2][0] != "") ||
-    (movesHistory[0][2][0] === movesHistory[0][1][1] &&
-      movesHistory[0][2][0] === movesHistory[0][0][2] &&
-      movesHistory[0][2][0] != "") ||
-    (movesHistory[0][0][2] === movesHistory[0][1][2] &&
-      movesHistory[0][0][2] === movesHistory[0][2][2] &&
-      movesHistory[0][0][2] != "") ||
-    (movesHistory[0][1][0] === movesHistory[0][1][1] &&
-      movesHistory[0][1][0] === movesHistory[0][1][2] &&
-      movesHistory[0][1][0] != "")
+    (presentState[0][0] === presentState[0][1] &&
+      presentState[0][0] === presentState[0][2] &&
+      presentState[0][0] != "") ||
+    (presentState[0][0] === presentState[1][1] &&
+      presentState[0][0] === presentState[2][2] &&
+      presentState[0][0] != "") ||
+    (presentState[0][0] === presentState[1][0] &&
+      presentState[0][0] === presentState[2][0] &&
+      presentState[0][0] != "") ||
+    (presentState[2][0] === presentState[2][1] &&
+      presentState[2][0] === presentState[2][2] &&
+      presentState[2][0] != "") ||
+    (presentState[2][0] === presentState[1][1] &&
+      presentState[2][0] === presentState[0][2] &&
+      presentState[2][0] != "") ||
+    (presentState[0][2] === presentState[1][2] &&
+      presentState[0][2] === presentState[2][2] &&
+      presentState[0][2] != "") ||
+    (presentState[1][0] === presentState[1][1] &&
+      presentState[1][0] === presentState[1][2] &&
+      presentState[1][0] != "") ||
+    (presentState[0][1] === presentState[1][1] &&
+      presentState[0][1] === presentState[2][1] &&
+      presentState[0][1] != "")
   ) {
     alert(symbolsList[(whoseTurn - 1) % 2] + " won!");
     document.querySelector("#winnerAnnounce").textContent =
